@@ -31,7 +31,7 @@ class AdminPanelProvider extends PanelProvider
             ->login()
             ->profile()
             ->brandName('Griya Balur CMS')
-            ->favicon(asset('assets/favicon.svg'))
+            ->favicon('/assets/favicon.svg')
             ->colors(['primary' => Color::Emerald])
             ->navigationGroups(['Konten', 'Situs', 'Admin'])
             ->userMenuItems([
