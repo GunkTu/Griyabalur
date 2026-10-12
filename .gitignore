@@ -1,0 +1,29 @@
+# Generated static preview (old build, rebuilt with `node build.mjs`)
+/dist/
+
+# Third-party agent skills installed locally
+/.agents/
+/.claude/
+skills-lock.json
+
+# Node
+node_modules/
+
+# Laravel app (cms/): secrets, dependencies, local data, generated and uploaded files
+/cms/.env
+/cms/vendor/
+/cms/node_modules/
+/cms/database/*.sqlite*
+/cms/storage/logs/
+/cms/public/css/filament/
+/cms/public/js/filament/
+/cms/public/fonts/filament/
+/cms/public/media/uploads/
+/cms/public/media/brand/
+/cms/public/media/research/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

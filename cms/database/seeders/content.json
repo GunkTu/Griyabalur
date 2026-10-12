@@ -1,0 +1,497 @@
+{
+  "sections": {
+    "hero": {
+      "lead": {
+        "id": "Mengenal BALUR melalui ruang, aktivitas, dan informasi yang terbuka.",
+        "en": "Explore BALUR through our space, activities, and openly shared information."
+      },
+      "cta1": {
+        "id": "Lihat fasilitas",
+        "en": "See the facilities"
+      },
+      "cta2": {
+        "id": "Tanya admin",
+        "en": "Ask our admin"
+      },
+      "image": "hero.webp",
+      "image_alt": {
+        "id": "Terasering sawah di Bali pada pagi hari",
+        "en": "Rice terraces in Bali at morning light"
+      }
+    },
+    "about": {
+      "headline": {
+        "id": "Sebuah griya untuk mengenal *BALUR*.",
+        "en": "A place to get to know *BALUR*."
+      },
+      "body": {
+        "id": "Griya Balur Bukian Mertasari menyajikan informasi tentang kegiatan BALUR, latar belakang pendekatan biofisika, tempat, dan dokumentasi aktivitas secara terbuka.\n\nDetail layanan dan afiliasi lembaga ditayangkan setelah diverifikasi bersama pengelola.",
+        "en": "Griya Balur Bukian Mertasari shares information about BALUR activities, the biophysics background of the approach, our space, and documentation of our activities.\n\nService details and institutional affiliations are published once verified with the management."
+      },
+      "image": "about.webp",
+      "image_alt": {
+        "id": "Pavilion bernuansa tradisional Bali dikelilingi taman",
+        "en": "A traditional Balinese pavilion surrounded by garden"
+      }
+    },
+    "balur": {
+      "headline": {
+        "id": "Tiga gagasan yang menjadi kerangka pendekatan kami.",
+        "en": "Three ideas that frame our approach."
+      },
+      "lead": {
+        "id": "Ini konsep yang diperkenalkan organisasi. Isinya kerangka berpikir, tanpa klaim hasil dan tanpa janji manfaat kesehatan.",
+        "en": "These are concepts introduced by the organization. They describe a way of thinking, with no claims of results and no promised health benefits."
+      },
+      "note": {
+        "id": "Konsep ini belum merupakan bukti efektivitas medis. Dokumen pendukung yang telah disahkan ada di bagian Penelitian.",
+        "en": "These concepts are not evidence of medical effectiveness. Approved supporting documents are listed under Research."
+      }
+    },
+    "activities": {
+      "headline": {
+        "id": "Kegiatan yang kami *kenalkan*.",
+        "en": "Activities we *introduce*."
+      },
+      "lead": {
+        "id": "Ringkasan non-preskriptif. Tiap kegiatan ditayangkan setelah melalui tinjauan konten.",
+        "en": "Non-prescriptive summaries. Each activity goes live only after content review."
+      },
+      "image": "g2.webp",
+      "image_alt": {
+        "id": "Rempah dan umbi-umbian untuk ramuan herbal",
+        "en": "Spices and roots used for herbal preparations"
+      }
+    },
+    "visit": {
+      "headline": {
+        "id": "Dari pesan pertama sampai tiba di griya.",
+        "en": "From the first message to arriving at the griya."
+      },
+      "note": {
+        "id": "Alur umum, akan disesuaikan dengan SOP resmi.",
+        "en": "A general flow, to be aligned with our official SOP."
+      }
+    },
+    "facilities": {
+      "headline": {
+        "id": "Ruang yang *kami sediakan*.",
+        "en": "The spaces *we offer*."
+      },
+      "lead": {
+        "id": "Foto di sini contoh. Foto fasilitas asli menyusul setelah dokumentasi tersedia.",
+        "en": "The photos here are samples. Original facility photos follow once documentation is ready."
+      }
+    },
+    "gallery": {
+      "headline": {
+        "id": "Lihat suasana dan *kegiatan* kami.",
+        "en": "A closer look at our spaces and *activities*."
+      },
+      "lead": {
+        "id": "Setiap foto ditampilkan dengan izin subjek yang tercatat.",
+        "en": "Every photo is shown with recorded consent from the people in it."
+      }
+    },
+    "research": {
+      "headline": {
+        "id": "Penelitian dan dokumen pendukung.",
+        "en": "Research and supporting documents."
+      },
+      "lead": {
+        "id": "Hanya dokumen asli yang telah disahkan penanggung jawab yang kami tayangkan, lengkap dengan penulis, institusi, tahun, jenis studi, dan keterbatasannya.",
+        "en": "We publish only original documents approved by the responsible party, with authors, institution, year, study type, and limitations."
+      }
+    },
+    "faq": {
+      "headline": {
+        "id": "Pertanyaan yang sering diajukan.",
+        "en": "Frequently asked questions."
+      }
+    },
+    "contact": {
+      "headline": {
+        "id": "Punya pertanyaan tentang lokasi atau *kunjungan*?",
+        "en": "Questions about our location or *visiting* us?"
+      },
+      "lead": {
+        "id": "Hubungi admin kami untuk informasi resmi.",
+        "en": "Contact our team for official information."
+      },
+      "image": "g5.webp",
+      "image_alt": {
+        "id": "Sawah bertingkat di sekitar lokasi",
+        "en": "Terraced rice fields near the site"
+      }
+    }
+  },
+  "concepts": [
+    {
+      "title": {
+        "id": "Keseimbangan alam",
+        "en": "Balance with nature"
+      },
+      "body": {
+        "id": "Manusia dipandang sebagai bagian dari alam. Kegiatan memakai bahan alami seperti herbal dan kopi lokal.",
+        "en": "People are seen as part of nature. Activities use natural materials such as herbs and local coffee."
+      }
+    },
+    {
+      "title": {
+        "id": "Biofisika",
+        "en": "Biophysics"
+      },
+      "body": {
+        "id": "Sudut pandang fisika dipakai untuk memahami proses di dalam tubuh, sebagai bahan diskusi dan edukasi.",
+        "en": "Physics serves as a lens for understanding processes in the body, offered for discussion and education."
+      }
+    },
+    {
+      "title": {
+        "id": "Sains kompleksitas",
+        "en": "Complexity science"
+      },
+      "body": {
+        "id": "Tubuh dilihat sebagai sistem yang saling terhubung, sehingga informasi disampaikan utuh dan hati-hati.",
+        "en": "The body is viewed as an interconnected system, so information is shared whole and with care."
+      }
+    }
+  ],
+  "activities": [
+    {
+      "title": {
+        "id": "Pembaluran herbal",
+        "en": "Herbal balur application"
+      },
+      "summary": {
+        "id": "Pembaluran dengan ramuan herbal sebagai bagian dari pengalaman BALUR, didampingi tim kami.",
+        "en": "A balur application with herbal preparations as part of the BALUR experience, guided by our team."
+      },
+      "public_note": {
+        "id": "Menunggu tinjauan",
+        "en": "Pending review"
+      }
+    },
+    {
+      "title": {
+        "id": "Edukasi dan diskusi",
+        "en": "Education and discussion"
+      },
+      "summary": {
+        "id": "Penjelasan tentang konsep BALUR, bahan yang digunakan, dan hal yang perlu disiapkan sebelum kegiatan.",
+        "en": "An explanation of the BALUR concept, the materials used, and what to prepare before an activity."
+      },
+      "public_note": {
+        "id": "Menunggu tinjauan",
+        "en": "Pending review"
+      }
+    },
+    {
+      "title": {
+        "id": "Kopi Balur",
+        "en": "Kopi Balur"
+      },
+      "summary": {
+        "id": "Pengenalan Kopi Balur sebagai produk pendukung. Deskripsi produk dipisahkan dari klaim pengobatan.",
+        "en": "An introduction to Kopi Balur as a supporting product. Product descriptions are kept separate from any treatment claims."
+      },
+      "public_note": {
+        "id": "Menunggu tinjauan",
+        "en": "Pending review"
+      }
+    },
+    {
+      "title": {
+        "id": "Konsultasi awal",
+        "en": "Initial consultation"
+      },
+      "summary": {
+        "id": "Percakapan awal dengan admin untuk menyampaikan kebutuhan dan pertanyaan sebelum berkunjung.",
+        "en": "A first conversation with our admin to share your needs and questions before visiting."
+      },
+      "public_note": {
+        "id": "Menunggu tinjauan",
+        "en": "Pending review"
+      }
+    }
+  ],
+  "visit_steps": [
+    {
+      "title": {
+        "id": "Tanya admin",
+        "en": "Ask our admin"
+      },
+      "body": {
+        "id": "Kirim pesan WhatsApp untuk informasi lokasi dan ketersediaan.",
+        "en": "Message us on WhatsApp for location details and availability."
+      }
+    },
+    {
+      "title": {
+        "id": "Konsultasi awal",
+        "en": "Initial consultation"
+      },
+      "body": {
+        "id": "Sampaikan kondisi dan pertanyaan Anda sebelum datang.",
+        "en": "Share your condition and questions before you arrive."
+      }
+    },
+    {
+      "title": {
+        "id": "Penjelasan layanan",
+        "en": "Service overview"
+      },
+      "body": {
+        "id": "Tim menjelaskan kegiatan, batasan, dan hal yang perlu diperhatikan.",
+        "en": "Our team explains the activities, limitations, and what to keep in mind."
+      }
+    },
+    {
+      "title": {
+        "id": "Kunjungan",
+        "en": "Visit"
+      },
+      "body": {
+        "id": "Datang pada waktu yang telah disepakati.",
+        "en": "Come at the time we agreed on."
+      }
+    }
+  ],
+  "facilities": [
+    {
+      "title": {
+        "id": "Area penerimaan",
+        "en": "Reception area"
+      },
+      "caption": {
+        "id": "Taman dan kolam di area depan",
+        "en": "Garden and pool at the front"
+      },
+      "alt": {
+        "id": "Taman dengan kolam, pepohonan kelapa, dan bangunan beratap alang-alang",
+        "en": "Garden with a pool, coconut palms, and thatched buildings"
+      },
+      "image": "fac1.webp"
+    },
+    {
+      "title": {
+        "id": "Ruang tunggu",
+        "en": "Waiting area"
+      },
+      "caption": {
+        "id": "Relief batu dan bunga kamboja",
+        "en": "Stone relief and frangipani"
+      },
+      "alt": {
+        "id": "Relief batu dengan bunga kamboja merah muda",
+        "en": "Stone relief with pink frangipani flowers"
+      },
+      "image": "fac3.webp"
+    },
+    {
+      "title": {
+        "id": "Ruang kegiatan",
+        "en": "Activity room"
+      },
+      "caption": {
+        "id": "Ruang perawatan dengan cahaya alami",
+        "en": "Treatment room with natural light"
+      },
+      "alt": {
+        "id": "Ruang perawatan dengan tempat tidur dan tirai putih",
+        "en": "Treatment room with a bed and white curtains"
+      },
+      "image": "fac2.webp"
+    },
+    {
+      "title": {
+        "id": "Sarana pendukung",
+        "en": "Supporting amenities"
+      },
+      "caption": {
+        "id": "Hamparan sawah di sekitar lokasi",
+        "en": "Rice fields around the site"
+      },
+      "alt": {
+        "id": "Sawah dan rumah-rumah kecil di lereng bukit",
+        "en": "Rice fields and small houses on a hillside"
+      },
+      "image": "fac5.webp"
+    },
+    {
+      "title": {
+        "id": "Area luar",
+        "en": "Outdoor area"
+      },
+      "caption": {
+        "id": "Terasering di sisi timur",
+        "en": "Terraces on the east side"
+      },
+      "alt": {
+        "id": "Terasering sawah dikelilingi pohon kelapa",
+        "en": "Rice terraces surrounded by coconut palms"
+      },
+      "image": "fac4.webp"
+    }
+  ],
+  "gallery": [
+    {
+      "image": "fac1.webp",
+      "category": "exterior",
+      "caption": {
+        "id": "Halaman depan",
+        "en": "Front garden"
+      },
+      "alt": {
+        "id": "Halaman depan dengan kolam dan pepohonan kelapa",
+        "en": "Front garden with a pool and coconut palms"
+      }
+    },
+    {
+      "image": "g1.webp",
+      "category": "exterior",
+      "caption": {
+        "id": "Sesaji bunga",
+        "en": "Flower offering"
+      },
+      "alt": {
+        "id": "Kelopak bunga di dalam bejana batu",
+        "en": "Flower petals in a stone vessel"
+      }
+    },
+    {
+      "image": "fac2.webp",
+      "category": "facility",
+      "caption": {
+        "id": "Ruang perawatan",
+        "en": "Treatment room"
+      },
+      "alt": {
+        "id": "Ruang perawatan dengan cahaya alami",
+        "en": "Treatment room with natural light"
+      }
+    },
+    {
+      "image": "g2.webp",
+      "category": "activity",
+      "caption": {
+        "id": "Ramuan herbal",
+        "en": "Herbal preparations"
+      },
+      "alt": {
+        "id": "Rempah dan umbi-umbian untuk ramuan",
+        "en": "Spices and roots for preparations"
+      }
+    },
+    {
+      "image": "g3.webp",
+      "category": "product",
+      "caption": {
+        "id": "Biji kopi sangrai",
+        "en": "Roasted coffee beans"
+      },
+      "alt": {
+        "id": "Biji kopi sangrai",
+        "en": "Roasted coffee beans"
+      }
+    },
+    {
+      "image": "fac3.webp",
+      "category": "facility",
+      "caption": {
+        "id": "Relief batu",
+        "en": "Stone relief"
+      },
+      "alt": {
+        "id": "Relief batu dengan bunga kamboja",
+        "en": "Stone relief with frangipani"
+      }
+    },
+    {
+      "image": "g4.webp",
+      "category": "activity",
+      "caption": {
+        "id": "Bumbu dan rempah",
+        "en": "Herbs and spices"
+      },
+      "alt": {
+        "id": "Aneka bumbu dan rempah",
+        "en": "Assorted herbs and spices"
+      }
+    },
+    {
+      "image": "g5.webp",
+      "category": "exterior",
+      "caption": {
+        "id": "Sawah sekitar lokasi",
+        "en": "Rice terraces nearby"
+      },
+      "alt": {
+        "id": "Terasering sawah di Tirta Gangga",
+        "en": "Rice terraces at Tirta Gangga"
+      }
+    }
+  ],
+  "faqs": [
+    {
+      "question": {
+        "id": "Di mana lokasinya dan kapan buka?",
+        "en": "Where are you and when are you open?"
+      },
+      "answer": {
+        "id": "Alamat resmi dan jam layanan tercantum di bagian Kontak. Hubungi admin untuk memastikan ketersediaan sebelum datang.",
+        "en": "The official address and hours are listed under Contact. Message our admin to confirm availability before visiting."
+      }
+    },
+    {
+      "question": {
+        "id": "Bagaimana cara berkonsultasi sebelum berkunjung?",
+        "en": "How can I consult before visiting?"
+      },
+      "answer": {
+        "id": "Hubungi admin melalui WhatsApp. Admin akan menjelaskan alur dan informasi yang perlu disiapkan.",
+        "en": "Message our admin on WhatsApp. They will explain the process and what to prepare."
+      }
+    },
+    {
+      "question": {
+        "id": "Apakah layanan ini menggantikan perawatan medis?",
+        "en": "Does this replace medical care?"
+      },
+      "answer": {
+        "id": "Tidak. Informasi di situs ini bersifat edukatif dan bukan pengganti konsultasi dengan tenaga kesehatan.",
+        "en": "No. Information on this site is educational and is not a substitute for advice from a healthcare professional."
+      }
+    },
+    {
+      "question": {
+        "id": "Apakah BALUR menjanjikan kesembuhan?",
+        "en": "Does BALUR promise a cure?"
+      },
+      "answer": {
+        "id": "Tidak. Kami tidak memberikan diagnosis maupun janji kesembuhan. Kami memperkenalkan kegiatan dan pendekatan secara terbuka.",
+        "en": "No. We do not provide diagnoses or promise cures. We openly introduce our activities and approach."
+      }
+    },
+    {
+      "question": {
+        "id": "Apa yang perlu disiapkan sebelum berkunjung?",
+        "en": "What should I prepare before visiting?"
+      },
+      "answer": {
+        "id": "Sampaikan kondisi kesehatan dan pertanyaan Anda kepada admin lebih dulu. Tim akan menjelaskan persiapan yang sesuai.",
+        "en": "Share your health condition and questions with our admin first. The team will explain suitable preparation."
+      }
+    }
+  ],
+  "seo": {
+    "id": {
+      "title": "Griya Balur Bukian Mertasari | Mengenal BALUR",
+      "description": "Profil, pendekatan, fasilitas, dan dokumentasi kegiatan BALUR di Griya Balur Bukian Mertasari. Informasi edukatif dan terbuka."
+    },
+    "en": {
+      "title": "Griya Balur Bukian Mertasari | Explore BALUR",
+      "description": "Our organization, approach, facilities, and documented BALUR activities at Griya Balur Bukian Mertasari. Educational and openly shared information."
+    }
+  }
+}
