@@ -12,6 +12,7 @@ use App\Models\PageSection;
 use App\Models\ResearchEvidence;
 use App\Models\SiteSetting;
 use App\Models\VisitStep;
+use App\Support\Site;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 
@@ -48,6 +49,8 @@ class SiteController extends Controller
         $visible = [
             'about' => $sections->has('about'),
             'balur' => $sections->has('balur') && $concepts->isNotEmpty(),
+            // The profile video shows only in a language that has its own video (uploaded file or YouTube/Vimeo link).
+            'video' => $sections->has('video') && (filled($sections['video']->video_file[$locale] ?? null) || Site::embed($sections['video']->video_url[$locale] ?? null) !== null),
             'activities' => $sections->has('activities') && $activities->isNotEmpty(),
             'visit' => $sections->has('visit') && $steps->isNotEmpty(),
             'facilities' => $sections->has('facilities') && $facilities->isNotEmpty(),

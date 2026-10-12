@@ -115,6 +115,10 @@
 </section>
 @endif
 
+@if ($visible['video'])
+@include('site.partials.video')
+@endif
+
 @if ($visible['activities'])
 <section class="sec" id="activities" aria-labelledby="act-h">
   <div class="wrap actwrap">

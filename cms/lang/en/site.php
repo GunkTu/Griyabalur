@@ -82,6 +82,11 @@ return [
         'rights' => 'All rights reserved.',
         'privacy_body' => 'This site does not request or store visitors’ medical data. Analytics only records click events (WhatsApp, maps, gallery, downloads) without personal data.',
     ],
+    'video' => [
+        'play' => 'Play video',
+        'summary' => 'Video summary',
+        'unsupported' => 'Your browser cannot play this video.',
+    ],
     'locale' => [
         'lang' => 'en-US',
         'og' => 'en_US',

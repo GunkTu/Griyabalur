@@ -72,6 +72,23 @@
   var pl = $('#privacy-link'), pv = $('#privacy');
   pl.addEventListener('click', function (e) { e.preventDefault(); pv.hidden = !pv.hidden; if (!pv.hidden) pv.scrollIntoView({ behavior: 'smooth' }); });
 
+  // Profile video: a YouTube/Vimeo player is created only after the click, so nothing third-party loads before then
+  $('.video__play').forEach(function (b) {
+    b.addEventListener('click', function () {
+      var frame = b.parentNode, f = d.createElement('iframe');
+      f.src = b.dataset.embed;
+      f.title = b.dataset.title || '';
+      f.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen';
+      f.allowFullscreen = true;
+      f.referrerPolicy = 'strict-origin-when-cross-origin';
+      $('.video__poster, .contour', frame).forEach(function (n) { n.remove(); });
+      frame.replaceChild(f, b);
+      f.focus();
+      track('video_play');
+    });
+  });
+  $('video.video__el').forEach(function (v) { v.addEventListener('play', function () { track('video_play'); }, { once: true }); });
+
   // Facilities tab viewer (arrow keys, Home, End)
   var tabs = $$('.fac__tab'), fimgs = $$('.fac__img'), panel = $('#fac-view');
   function selectTab(i, focus) {

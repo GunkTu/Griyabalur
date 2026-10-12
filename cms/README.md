@@ -7,7 +7,7 @@ Laravel 12 + Filament 4. The public site is server-rendered at `/id/` and `/en/`
 ```
 cd cms
 php artisan serve          # http://127.0.0.1:8000  (/en/, /id/, /admin)
-php artisan test           # 27 tests: both languages, workflow rules, roles, admin forms, photo optimizing, brand settings
+php artisan test           # 39 tests: both languages, workflow rules, roles, admin forms, photo optimizing, brand settings, profile video
 ```
 
 First setup on a new machine: `composer install`, copy `.env.example` to `.env`, `php artisan key:generate`, then
@@ -19,7 +19,7 @@ The seeder prints the first admin login once. Set `ADMIN_EMAIL` and `ADMIN_PASSW
 
 | Admin menu | Public section |
 | --- | --- |
-| Bagian halaman | Hero text, headings, intro texts, section photos |
+| Bagian halaman | Hero text, headings, intro texts, section photos, and the BALUR profile video (row "Video profil BALUR") |
 | Konsep BALUR, Kegiatan, Langkah kunjungan, Fasilitas, Galeri, Penelitian & bukti, FAQ | The matching sections |
 | Lokasi & kontak (admin) | Address, WhatsApp, Maps, hours, floating WhatsApp button |
 | Pengaturan situs (admin) | Brand name, logo, favicon, link-preview image, SEO per language, footer and privacy text, WhatsApp opening message, social links, analytics |
@@ -28,6 +28,11 @@ The seeder prints the first admin login once. Set `ADMIN_EMAIL` and `ADMIN_PASSW
 Navigation labels, buttons, and fixed interface text live in `lang/id/site.php` and `lang/en/site.php`.
 Uploaded files go to `public/media/` (no `storage:link` needed).
 Photos are converted to WebP (max 1920 px wide) with 480 px and 960 px copies, and EXIF data such as GPS is removed. This needs the PHP `gd` extension (`extension=gd` in php.ini). `php artisan media:optimize` converts photos that are already in the database.
+
+## Profile video
+
+In **Bagian halaman → Video profil BALUR** each language gets its own video, as a YouTube/Vimeo link or an uploaded MP4/WebM (up to 24 MB; larger videos should go to YouTube). An uploaded file wins if both are set. The cover image (16:9 recommended) is the section photo. The section is hidden in a language until that language has a video, and nothing loads from YouTube or Vimeo before the visitor presses play. The summary box under the video (field "Catatan") is optional text for people who cannot watch it.
+Uploaded videos go to `public/media/video/` and are not part of git, so back that folder up with the rest of `public/media/`.
 
 ## Rules built in
 

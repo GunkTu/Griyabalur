@@ -48,6 +48,16 @@
         "en": "These concepts are not evidence of medical effectiveness. Approved supporting documents are listed under Research."
       }
     },
+    "video": {
+      "headline": {
+        "id": "Profil *BALUR* dalam video.",
+        "en": "A short *video* profile of BALUR."
+      },
+      "lead": {
+        "id": "Video profil yang memperkenalkan Griya Balur Bukian Mertasari, kegiatan BALUR, dan suasana tempatnya.",
+        "en": "A profile video introducing Griya Balur Bukian Mertasari, BALUR activities, and the place itself."
+      }
+    },
     "activities": {
       "headline": {
         "id": "Kegiatan yang kami *kenalkan*.",

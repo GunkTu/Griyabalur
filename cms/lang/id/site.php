@@ -82,6 +82,11 @@ return [
         'rights' => 'Hak cipta dilindungi.',
         'privacy_body' => 'Situs ini tidak meminta atau menyimpan data medis pengunjung. Analitik hanya mencatat peristiwa klik (WhatsApp, peta, galeri, unduhan) tanpa data pribadi.',
     ],
+    'video' => [
+        'play' => 'Putar video',
+        'summary' => 'Ringkasan isi video',
+        'unsupported' => 'Browser Anda tidak dapat memutar video ini.',
+    ],
     'locale' => [
         'lang' => 'id-ID',
         'og' => 'id_ID',

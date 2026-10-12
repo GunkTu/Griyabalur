@@ -70,6 +70,49 @@ class Site
         ));
     }
 
+    /**
+     * Turns a YouTube or Vimeo link into an embed address, or null for anything else.
+     * YouTube uses the privacy-enhanced domain and Vimeo asks not to track; the player only loads after a click.
+     *
+     * @return array{provider: string, id: string, src: string}|null
+     */
+    public static function embed(?string $url): ?array
+    {
+        $parts = parse_url(trim((string) $url));
+        if (! $parts || ! in_array($parts['scheme'] ?? '', ['http', 'https'], true) || empty($parts['host'])) {
+            return null;
+        }
+        $host = preg_replace('/^(www\.|m\.)/', '', strtolower($parts['host']));
+        $path = $parts['path'] ?? '';
+
+        $youtubeId = null;
+        if ($host === 'youtu.be') {
+            $youtubeId = substr(ltrim($path, '/'), 0, 11);
+        } elseif (in_array($host, ['youtube.com', 'music.youtube.com', 'youtube-nocookie.com'], true)) {
+            if ($path === '/watch') {
+                parse_str($parts['query'] ?? '', $q);
+                $youtubeId = (string) ($q['v'] ?? '');
+            } elseif (preg_match('#^/(embed|shorts|live)/([\w-]{11})#', $path, $m)) {
+                $youtubeId = $m[2];
+            }
+        }
+        if ($youtubeId !== null && preg_match('/^[\w-]{11}$/', $youtubeId)) {
+            return ['provider' => 'youtube', 'id' => $youtubeId, 'src' => "https://www.youtube-nocookie.com/embed/{$youtubeId}?autoplay=1&rel=0&modestbranding=1"];
+        }
+
+        if (in_array($host, ['vimeo.com', 'player.vimeo.com'], true) && preg_match('#/(\d{6,12})(?:/|$)#', $path, $m)) {
+            return ['provider' => 'vimeo', 'id' => $m[1], 'src' => "https://player.vimeo.com/video/{$m[1]}?autoplay=1&dnt=1"];
+        }
+
+        return null;
+    }
+
+    /** MIME type for an uploaded video file. */
+    public static function videoType(string $path): string
+    {
+        return strtolower(pathinfo($path, PATHINFO_EXTENSION)) === 'webm' ? 'video/webm' : 'video/mp4';
+    }
+
     /** Identity motif: terrace contour lines. Deterministic, so pages are stable between requests. */
     public static function contour(int $lines, int $seed): HtmlString
     {
