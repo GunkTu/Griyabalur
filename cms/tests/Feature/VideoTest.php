@@ -9,6 +9,7 @@ use App\Support\Site;
 use Database\Seeders\CmsSeeder;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Http\UploadedFile;
+use Illuminate\Support\Facades\Http;
 use Livewire\Livewire;
 use Tests\TestCase;
 
@@ -16,12 +17,41 @@ class VideoTest extends TestCase
 {
     use RefreshDatabase;
 
+    private $cover = null;
+
     private const PAGE = 'App\Filament\Resources\PageSections\Pages\ManagePageSections';
 
     protected function setUp(): void
     {
         parent::setUp();
         $this->seed(CmsSeeder::class);
+        // tests never reach YouTube or Vimeo: every request gets $this->cover, or a 404 when none is set
+        Http::fake(fn () => $this->cover ?? Http::response('', 404));
+        $this->cleanThumbnails();
+    }
+
+    protected function tearDown(): void
+    {
+        $this->cleanThumbnails();
+        parent::tearDown();
+    }
+
+    private function cleanThumbnails(): void
+    {
+        Media::delete('video/thumbs/youtube-dQw4w9WgXcQ.webp');
+        @unlink(storage_path('framework/cache/thumb-miss-youtube-dQw4w9WgXcQ'));
+    }
+
+    private function fakeCover(): string
+    {
+        $img = imagecreatetruecolor(1280, 720);
+        for ($y = 0; $y < 720; $y += 6) {
+            imagefilledrectangle($img, 0, $y, 1280, $y + 5, imagecolorallocate($img, ($y * 7) % 255, ($y * 3) % 255, 90));
+        }
+        ob_start();
+        imagejpeg($img, null, 90);
+
+        return ob_get_clean();
     }
 
     private function section(): PageSection
@@ -74,6 +104,39 @@ class VideoTest extends TestCase
         $this->get('/en/')->assertSee('data-embed', false)->assertDontSee('<video', false); // English has only the link
 
         Media::delete($file);
+    }
+
+    public function test_a_youtube_link_gets_its_cover_image_fetched_once_and_kept_on_our_server(): void
+    {
+        $this->cover = Http::response($this->fakeCover(), 200, ['Content-Type' => 'image/jpeg']);
+        $this->section()->update(['video_url' => ['id' => 'https://youtu.be/dQw4w9WgXcQ', 'en' => 'https://youtu.be/dQw4w9WgXcQ']]);
+
+        $html = $this->get('/en/')->assertSee('class="video__poster"', false)->getContent();
+        $this->assertStringContainsString('/media/video/thumbs/youtube-dQw4w9WgXcQ.webp', $html);
+        $this->assertStringNotContainsString('ytimg.com', $html); // visitors never contact YouTube before pressing play
+        $this->assertSame(1280, getimagesize(public_path('media/video/thumbs/youtube-dQw4w9WgXcQ.webp'))[0]);
+
+        $this->get('/id/')->assertSee('video__poster', false);
+        Http::assertSentCount(1); // fetched once, then served from our own folder
+    }
+
+    public function test_when_the_cover_cannot_be_fetched_the_page_still_works_and_does_not_keep_retrying(): void
+    {
+        $this->section()->update(['video_url' => ['id' => 'https://youtu.be/dQw4w9WgXcQ', 'en' => 'https://youtu.be/dQw4w9WgXcQ']]);
+
+        $this->get('/en/')->assertOk()->assertSee('video__play', false)->assertDontSee('video__poster', false);
+        $this->get('/id/')->assertOk()->assertSee('video__play', false);
+
+        Http::assertSentCount(2); // maxres and hq on the first try, nothing on the next visits
+    }
+
+    public function test_an_uploaded_cover_wins_over_the_fetched_one(): void
+    {
+        $this->cover = Http::response($this->fakeCover(), 200, ['Content-Type' => 'image/jpeg']);
+        $this->section()->update(['video_url' => ['id' => 'https://youtu.be/dQw4w9WgXcQ', 'en' => 'https://youtu.be/dQw4w9WgXcQ'], 'image' => 'hero.webp', 'image_alt' => ['id' => 'Sampul', 'en' => 'Cover']]);
+
+        $this->get('/en/')->assertSee('/media/hero.webp', false)->assertDontSee('thumbs/youtube', false);
+        Http::assertNothingSent();
     }
 
     public function test_only_youtube_and_vimeo_links_are_accepted_in_the_admin(): void

@@ -5,9 +5,11 @@ namespace App\Support;
 use DOMDocument;
 use DOMElement;
 use GdImage;
+use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Str;
 use Livewire\Features\SupportFileUploads\TemporaryUploadedFile;
 use RuntimeException;
+use Throwable;
 
 /**
  * Uploaded photos are re-encoded as WebP (quality 82), capped at 1920px wide, with 480px and 960px
@@ -194,6 +196,66 @@ class Media
         }
 
         return true;
+    }
+
+    // ---- cover image for YouTube / Vimeo videos ----
+
+    /**
+     * Cover image of a YouTube/Vimeo video, fetched once by the server and kept in public/media/video/thumbs.
+     * Visitors then never contact YouTube or Vimeo until they press play. Returns null if it cannot be fetched
+     * (then the page shows the plain frame), and does not retry for an hour after a failure.
+     *
+     * @param  array{provider: string, id: string}  $embed  as returned by Site::embed()
+     */
+    public static function embedThumbnail(array $embed): ?string
+    {
+        $name = $embed['provider'].'-'.$embed['id'];
+        $path = "video/thumbs/{$name}.webp";
+        if (is_file(public_path('media/'.$path))) {
+            return $path;
+        }
+
+        $miss = storage_path("framework/cache/thumb-miss-{$name}");
+        if (is_file($miss) && filemtime($miss) > time() - 3600) {
+            return null;
+        }
+
+        try {
+            $tmp = tempnam(sys_get_temp_dir(), 'thumb');
+            foreach (self::thumbnailUrls($embed) as $url) {
+                $res = Http::timeout(5)->connectTimeout(3)->get($url);
+                if ($res->successful() && str_starts_with((string) $res->header('Content-Type'), 'image/') && strlen($res->body()) > 1500) {
+                    file_put_contents($tmp, $res->body());
+                    $saved = self::process($tmp, 'video/thumbs', $name, 1280, [640]);
+                    @unlink($tmp);
+
+                    return $saved;
+                }
+            }
+            @unlink($tmp);
+        } catch (Throwable) {
+            // fall through: no cover image
+        }
+
+        @touch($miss);
+
+        return null;
+    }
+
+    /** Candidate cover image addresses, best first. */
+    private static function thumbnailUrls(array $embed): array
+    {
+        if ($embed['provider'] === 'youtube') {
+            return [
+                "https://i.ytimg.com/vi/{$embed['id']}/maxresdefault.jpg",
+                "https://i.ytimg.com/vi/{$embed['id']}/hqdefault.jpg",
+            ];
+        }
+
+        $meta = Http::timeout(5)->connectTimeout(3)->get('https://vimeo.com/api/oembed.json', ['url' => "https://vimeo.com/{$embed['id']}", 'width' => 1280]);
+        $url = $meta->successful() ? $meta->json('thumbnail_url') : null;
+
+        return $url && str_starts_with($url, 'https://') ? [$url] : [];
     }
 
     // ---- lookup and cleanup ----

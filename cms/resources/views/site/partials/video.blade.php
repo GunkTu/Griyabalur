@@ -1,10 +1,13 @@
 @php
+    use App\Support\Media;
     use App\Support\Site;
 
     $vs = $sections->get('video');
     $vFile = $vs->video_file[$L] ?? null;
     $embed = $vFile ? null : Site::embed($vs->video_url[$L] ?? null);
     $poster = $vs->image;
+    // No cover uploaded: use the video's own cover, fetched once by the server (visitors never contact YouTube/Vimeo before pressing play).
+    $cover = $poster ?: ($embed ? Media::embedThumbnail($embed) : null);
     $vTitle = Site::plain($vs->tr('headline', $L));
 @endphp
 <section class="sec sec--video" id="video" aria-labelledby="video-h">
@@ -16,13 +19,13 @@
     <div class="video reveal">
       <div class="video__frame">
         @if ($vFile)
-          <video class="video__el" controls playsinline preload="none" @if ($poster) poster="{{ Site::media($poster) }}" @endif aria-label="{{ $vTitle }}">
+          <video class="video__el" controls playsinline preload="metadata" @if ($poster) poster="{{ Site::media($poster) }}" @endif aria-label="{{ $vTitle }}">
             <source src="{{ Site::media($vFile) }}" type="{{ Site::videoType($vFile) }}">
             {{ __('site.video.unsupported') }}
           </video>
         @else
           {{ Site::contour(9, 4) }}
-          @if ($poster){{ Site::img($poster, $vs->tr('image_alt', $L), 'lazy', 'class="video__poster"', '(min-width: 1240px) 1200px, 100vw') }}@endif
+          @if ($cover){{ Site::img($cover, $poster ? $vs->tr('image_alt', $L) : '', 'lazy', 'class="video__poster"', '(min-width: 1240px) 1200px, 100vw') }}@endif
           <button type="button" class="video__play" data-embed="{{ $embed['src'] }}" data-title="{{ $vTitle }}" aria-label="{{ __('site.video.play') }}: {{ $vTitle }}">
             <span class="video__btn">{!! Site::icon('play') !!}</span>
           </button>
