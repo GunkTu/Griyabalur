@@ -28,3 +28,11 @@ Thumbs.db
 .vscode/
 .idea/
 /cms/public/media/video/
+
+# Video editing project files (local only)
+*.prproj
+Adobe Premiere Pro Auto-Save/
+Adobe Premiere Pro Audio Previews/
+Adobe Premiere Pro Video Previews/
+*.cfa
+*.pek
